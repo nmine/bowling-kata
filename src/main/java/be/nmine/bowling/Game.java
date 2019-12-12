@@ -15,10 +15,7 @@ public class Game {
         int score = 0;
         int frameIndex = 0;
         for (int i = 0; i < 10; i++) {
-            if (rollsTemps.getPinDown(frameIndex) + rollsTemps.getPinDown(frameIndex + 1) == 10)
-                score += 10 + rollsTemps.getPinDown(frameIndex+2);
-            else
-                score += rollsTemps.getPinDown(frameIndex) + rollsTemps.getPinDown(frameIndex + 1);
+            score += rollsTemps.getScoreForFrame(frameIndex);
             frameIndex += 2;
         }
         return score;

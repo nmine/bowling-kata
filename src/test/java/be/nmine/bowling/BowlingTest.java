@@ -24,18 +24,19 @@ public class BowlingTest {
         assertThat(game.score()).isEqualTo(20);
     }
     
-//    @Test
-//    void roll_spare_should_score_next_roll_times_two() {
-//        Game game = new Game();
-//
-//        game.roll(5);
-//        game.roll(5);
-//        game.roll(3);
-//        rollMany(17,0,game);
-//
-//        assertThat(game.score()).isEqualTo(16);
-//
-//    }
+    @Test
+    void roll_spare_should_score_next_roll_times_two() {
+        Game game = new Game();
+
+        game.roll(5);
+        game.roll(5);
+        game.roll(3);
+        rollMany(17,0,game);
+
+        assertThat(game.score()).isEqualTo(16);
+
+    }
+
 
     private void rollMany(int times, int pins,Game game) {
         for(int i = 0; i < times; i++)

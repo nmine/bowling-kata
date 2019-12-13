@@ -16,17 +16,20 @@ public class RollsWrapper {
         rolls[currentRollIndex++] = pinDown;
     }
 
-    public int getPinDown(int index) {
-        return rolls[index];
+
+    public int getScoreForFrame(int frameIndex) {
+        if(isStrike(frameIndex))
+            return 10 + rolls[frameIndex+1] + rolls[frameIndex+2];
+        if(isSpare(frameIndex))
+            return 10 + rolls[frameIndex+2];
+        return rolls[frameIndex] + rolls[frameIndex + 1];
     }
 
     public boolean isSpare(int frameIndex) {
         return rolls[frameIndex] + rolls[frameIndex + 1] == 10;
     }
 
-    public int getScoreForFrame(int frameIndex) {
-        if(isSpare(frameIndex))
-            return 10 + rolls[frameIndex+2];
-        return rolls[frameIndex] + rolls[frameIndex + 1];
+    private boolean isStrike(int frameIndex) {
+        return rolls[frameIndex] == 10;
     }
 }

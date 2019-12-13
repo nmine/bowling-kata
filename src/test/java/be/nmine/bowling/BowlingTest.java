@@ -36,6 +36,18 @@ public class BowlingTest {
         assertThat(game.score()).isEqualTo(16);
 
     }
+    
+    @Test
+    void roll_strike_should_score_twice_two_next_roll() {
+        Game game = new Game();
+
+        game.roll(10);
+        game.roll(5);
+        game.roll(3);
+        rollMany(17,0,game);
+
+        assertThat(game.score()).isEqualTo(26);
+    }
 
 
     private void rollMany(int times, int pins,Game game) {
